@@ -3,8 +3,7 @@
 x = 0
 y = 0
 
-visits = Set({Int32, Int32}).new
-visits << {0, 0}
+visits = Set{ {0, 0} }
 
 input = File.read("#{__DIR__}/input")
 input.each_char do |char|
