@@ -11,10 +11,7 @@ input.each_line do |line|
         when "turn on"
           lights[x][y] += 1
         when "turn off"
-          count = lights[x][y]
-          count -= 1
-          count = 0 if count < 0
-          lights[x][y] = count
+          lights[x][y] = {lights[x][y] - 1, 0}.max
         when "toggle"
           lights[x][y] += 2
         end
