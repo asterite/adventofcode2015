@@ -2,7 +2,7 @@ diff = 0
 input = File.read("#{__DIR__}/input")
 input.each_line do |line|
   iter = line.each_char
-  iter.next
+  iter.next # Skip opening quote
   diff += 2 # For the opening and closing quote
   while true
     case iter.next
