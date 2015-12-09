@@ -16,16 +16,9 @@ end
 # Find out the maximum distance amongst each cities permutation
 max_distance = 0
 cities.to_a.each_permutation do |permutation|
-  this_distance = 0
-  0.upto(permutation.size - 2) do |i|
-    from, to = permutation[i], permutation[i + 1]
-    if path_distance = routes[{from, to}]?
-      this_distance += path_distance
-    else
-      this_distance = 0
-      break
-    end
+  distance = 0.upto(permutation.size - 2).sum do |i|
+    routes[{permutation[i], permutation[i + 1]}]
   end
-  max_distance = {max_distance, this_distance}.max
+  max_distance = {max_distance, distance}.max
 end
 puts max_distance

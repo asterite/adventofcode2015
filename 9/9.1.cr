@@ -16,16 +16,9 @@ end
 # Find out the minimum distance amongst each cities permutation
 min_distance = Int32::MAX
 cities.to_a.each_permutation do |permutation|
-  this_distance = 0
-  0.upto(permutation.size - 2) do |i|
-    from, to = permutation[i], permutation[i + 1]
-    if path_distance = routes[{from, to}]?
-      this_distance += path_distance
-    else
-      this_distance = Int32::MAX
-      break
-    end
+  distance = 0.upto(permutation.size - 2).sum do |i|
+    routes[{permutation[i], permutation[i + 1]}]
   end
-  min_distance = {min_distance, this_distance}.min
+  min_distance = {min_distance, distance}.min
 end
 puts min_distance
