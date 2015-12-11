@@ -57,7 +57,7 @@ def valid?(chars)
   !has_invalid_char?(chars) && has_stair?(chars) && has_two_pairs?(chars)
 end
 
-input = "hxbxxyzz"
+input = "hxbxwxba"
 chars = input.chars
 loop do
   succ(chars)
