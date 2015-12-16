@@ -13,9 +13,9 @@ target = {
 
 input = File.read("#{__DIR__}/input")
 sues = input.lines.map do |line|
-  match = line.match(/Sue (\d+): (.*)/).not_nil!
-  sue = {"Number": match[1].to_i}
-  match[2].split(',').each do |piece|
+  first, second = line.split(':', 2)
+  sue = {"Number": first.split[1].to_i}
+  second.split(',').each do |piece|
     name, value = piece.split(':')
     sue[name.strip] = value.to_i
   end
