@@ -58,13 +58,8 @@ class Shield < Spell
   end
 
   def effect(player, boss)
-    if @turns == 6
-      player.armor += 7
-      @first = false
-    end
-    if @turns == 1
-      player.armor -= 7
-    end
+    player.armor += 7 if @turns == 6
+    player.armor -= 7 if @turns == 1
   end
 end
 
