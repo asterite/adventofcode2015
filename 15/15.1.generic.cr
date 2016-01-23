@@ -14,7 +14,7 @@ max = 0_i64
   comb.each_permutation do |perm|
     total = 1_i64
     {% for property in %w(capacity durability flavor texture).map(&.id) %}
-      value = perm.size.times.inject(0) { |memo, index| memo + perm[index] * ingredients[index].{{property}} }
+      value = perm.size.times.reduce(0) { |memo, index| memo + perm[index] * ingredients[index].{{property}} }
       next if value <= 0
       total *= value
     {% end %}

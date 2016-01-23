@@ -12,12 +12,12 @@ max = 0_i64
   next unless comb.sum == 100
 
   comb.each_permutation do |perm|
-    calories = perm.size.times.inject(0) { |memo, index| memo + perm[index] * ingredients[index].calories }
+    calories = perm.size.times.reduce(0) { |memo, index| memo + perm[index] * ingredients[index].calories }
     next unless calories == 500
 
     total = 1_i64
     {% for property in %w(capacity durability flavor texture).map(&.id) %}
-      value = perm.size.times.inject(0) { |memo, index| memo + perm[index] * ingredients[index].{{property}} }
+      value = perm.size.times.reduce(0) { |memo, index| memo + perm[index] * ingredients[index].{{property}} }
       next if value <= 0
       total *= value
     {% end %}

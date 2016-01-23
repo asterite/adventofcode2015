@@ -18,7 +18,7 @@ def partition(nums, groups, target_group_sum, min, first)
           if first
             # If this is the first partition, we compute the product and save
             # it if it's less than what we have
-            product = first_group.inject(1_i64) { |m, v| m * v }
+            product = first_group.reduce(1_i64) { |m, v| m * v }
             min.value = product if product < min.value
           else
             # Otherwise, this is a second/third/etc. partition, we just need
