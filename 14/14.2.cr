@@ -2,7 +2,7 @@ class Reindeer
   getter distance
   property points
 
-  def initialize(@name, @speed, @fly_seconds, @rest_seconds)
+  def initialize(@name : String, @speed : Int32, @fly_seconds : Int32, @rest_seconds : Int32)
     @distance = 0
     @points = 0
     @flying = true

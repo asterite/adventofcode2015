@@ -1,4 +1,6 @@
 abstract class Component
+  @cached_value : UInt16?
+
   def value(circuit)
     @cached_value ||= compute_value(circuit)
   end

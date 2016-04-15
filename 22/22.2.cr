@@ -1,5 +1,5 @@
 abstract class Spell
-  def initialize(@turns)
+  def initialize(@turns : Int32)
   end
 
   def apply(player, boss)
@@ -98,7 +98,8 @@ class Player
   property spells
   property mana_used
 
-  def initialize(@hit_points, @mana, @armor, @spells = [] of Spell, @mana_used = 0)
+  def initialize(@hit_points : Int32, @mana : Int32, @armor : Int32,
+                 @spells = [] of Spell, @mana_used = 0)
   end
 
   def apply_spells(boss)
@@ -115,7 +116,7 @@ class Boss
   property hit_points
   property damage
 
-  def initialize(@hit_points, @damage)
+  def initialize(@hit_points : Int32, @damage : Int32)
   end
 
   def clone

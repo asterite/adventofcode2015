@@ -1,4 +1,9 @@
-record Ingredient, capacity, durability, flavor, texture, calories
+record Ingredient,
+  capacity : Int64,
+  durability : Int64,
+  flavor : Int64,
+  texture : Int64,
+  calories : Int64
 
 input = File.read("#{__DIR__}/input")
 ingredients = input.each_line.map { |line|

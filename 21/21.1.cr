@@ -1,5 +1,13 @@
-record Player, hit_points, damage, armor, cost
-record Equipment, cost, damage, armor
+record Player,
+  hit_points : Int32,
+  damage : Int32,
+  armor : Int32,
+  cost : Int32
+
+record Equipment,
+  cost : Int32,
+  damage : Int32,
+  armor : Int32
 
 def new_player(hit_points, equipment)
   Player.new(hit_points,
